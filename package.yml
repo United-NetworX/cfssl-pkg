@@ -36,4 +36,4 @@ files:
     mode: "0755"
     user: "root"
 scripts:
-  "post-install": ../scripts/post-inst
+  "post-install": scripts/post_install
