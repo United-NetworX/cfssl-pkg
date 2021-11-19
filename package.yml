@@ -1,0 +1,39 @@
+meta:
+  description: CloudFlare CFSS
+  vendor: CloudFlare
+  maintainer: BackInBash
+files:
+  "/usr/bin/cfssl":
+    file: bin/cfssl
+    mode: "0755"
+    user: "root"
+  "/usr/bin/cfssl-bundle":
+    file: bin/cfssl-bundle
+    mode: "0755"
+    user: "root"
+  "/usr/bin/cfssl-certinfo":
+    file: bin/cfssl-certinfo
+    mode: "0755"
+    user: "root"
+  "/usr/bin/cfssl-newkey":
+    file: bin/cfssl-newkey
+    mode: "0755"
+    user: "root"
+  "/usr/bin/cfssl-scan":
+    file: bin/cfssl-scan
+    mode: "0755"
+    user: "root"
+  "/usr/bin/cfssljson":
+    file: bin/cfssljson
+    mode: "0755"
+    user: "root"
+  "/usr/bin/mkbundle":
+    file: bin/mkbundle
+    mode: "0755"
+    user: "root"
+  "/usr/bin/multirootca":
+    file: bin/multirootca
+    mode: "0755"
+    user: "root"
+scripts:
+  "post-install": scripts/post-inst

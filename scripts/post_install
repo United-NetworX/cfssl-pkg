@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+path = "/usr/bin/"
+files=("cfssl" "cfssl-bundle" "cfssl-certinfo" "cfssl-newkey" "cfssl-scan" "cfssljson" "mkbundle" "multirootca")
+
+for i in "${files[@]}"; do chmod +x $path"$i"; done
