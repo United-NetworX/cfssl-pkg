@@ -47,7 +47,7 @@ jobs:
 
       # Build DEB Package
       - name: Build Linux DEB Packages
-        uses: kentik/pkg@v1
+        uses: kentik/pkg@v1.0.0-rc8
         with:
           name: cfssl
           version: ${{ steps.version.outputs.tag }}
@@ -57,7 +57,7 @@ jobs:
 
       # Build RPM Package
       - name: Build Linux PKG Packages
-        uses: kentik/pkg@v1
+        uses: kentik/pkg@v1.0.0-rc8
         with:
           name: cfssl
           version: ${{ steps.version.outputs.tag }}
