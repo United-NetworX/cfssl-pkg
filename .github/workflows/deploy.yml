@@ -28,6 +28,11 @@ jobs:
       - name: Setup Go environment
         uses: actions/setup-go@v2.1.4
 
+      - name: Retrieve version
+        run: |
+          echo "::set-output name=tag::$(curl --silent "https://api.github.com/repos/cloudflare/cfssl/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')"
+        id: version
+
       - name: Git Clone Action
         # You may pin to the exact commit or the version.
         # uses: sudosubin/git-clone-action@8a93ce24d47782e30077508cccacf8a05a891bae
@@ -35,8 +40,8 @@ jobs:
         with:
           # Repository owner and name. Ex: sudosubin/git-clone-action
           repository: cloudflare/cfssl
-          ref: ${{ git -C cfssl describe --tags }}
-          
+          ref: ${{ steps.version.outputs.tag }}
+      
       - name: Build CFSSL
         run: go build -v ./...
 
@@ -45,7 +50,7 @@ jobs:
         uses: kentik/pkg@v1
         with:
           name: cfssl
-          version: ${{ git -C cfssl describe --tags }}
+          version: ${{ steps.version.outputs.tag }}
           arch: x86_64
           format: rpm
           package: ../package.yaml
@@ -55,7 +60,7 @@ jobs:
         uses: kentik/pkg@v1
         with:
           name: cfssl
-          version: ${{ git -C cfssl describe --tags }}
+          version: ${{ steps.version.outputs.tag }}
           arch: x86_64
           format: deb
           package: ../package.yaml
