@@ -42,7 +42,7 @@ jobs:
 
       # Build DEB Package
       - name: Build Linux DEB Packages
-      - uses: kentik/pkg@v1
+        uses: kentik/pkg@v1
         with:
           name: cfssl
           version: ${{ git -C cfssl describe --tags }}
@@ -52,7 +52,7 @@ jobs:
 
       # Build RPM Package
       - name: Build Linux PKG Packages
-      - uses: kentik/pkg@v1
+        uses: kentik/pkg@v1
         with:
           name: cfssl
           version: ${{ git -C cfssl describe --tags }}
