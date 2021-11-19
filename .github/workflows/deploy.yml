@@ -54,7 +54,7 @@ jobs:
           version: ${{ steps.version.outputs.tag }}
           arch: x86_64
           format: rpm
-          package: package.yaml
+          package: ../package.yml
 
       # Build RPM Package
       - name: Build Linux PKG Packages
@@ -64,6 +64,6 @@ jobs:
           version: ${{ steps.version.outputs.tag }}
           arch: x86_64
           format: deb
-          package: package.yaml
+          package: ../package.yml
 
           
