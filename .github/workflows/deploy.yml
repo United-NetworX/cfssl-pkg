@@ -65,5 +65,11 @@ jobs:
           arch: x86_64
           format: deb
           package: package.yml
-
           
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          files: |
+            cfssl*.rpm
+            cfssl*.deb
