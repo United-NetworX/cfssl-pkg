@@ -65,5 +65,16 @@ jobs:
           arch: x86_64
           format: deb
           package: package.yml
-
           
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact-deb
+          path: |
+            ./*.deb
+            
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact-rpm
+          path: |
+            ./*.rpm
+            !./*-debuginfo-*.rpm          
