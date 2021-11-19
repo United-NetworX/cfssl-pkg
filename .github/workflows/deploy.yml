@@ -41,9 +41,10 @@ jobs:
           # Repository owner and name. Ex: sudosubin/git-clone-action
           repository: cloudflare/cfssl
           ref: ${{ steps.version.outputs.tag }}
+          path: cfssl
       
       - name: Build CFSSL
-        run: go build -v ./...
+        run: go build -v ./cfssl/...
 
       # Build DEB Package
       - name: Build Linux DEB Packages
