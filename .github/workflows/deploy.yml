@@ -40,31 +40,5 @@ jobs:
       - name: Build CFSSL
         run: go build -v ./...
 
-      # Build DEB Package
-      - name: Build Linux DEB Packages
-      - uses: kentik/pkg@v1
-        with:
-          name: cfssl
-          version: ${{ git describe --tags }}
-          arch: x86_64
-          format: rpm
-          package: ../package.yaml
 
-      # Build RPM Package
-      - name: Build Linux PKG Packages
-      - uses: kentik/pkg@v1
-        with:
-          name: cfssl
-          version: ${{ git describe --tags }}
-          arch: x86_64
-          format: deb
-          package: ../package.yaml
           
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.2.4
-        with:
-          # Artifact name
-          name: cfssl.*
-          # A file, directory or wildcard pattern that describes what to upload
-          path: .
-          # The desired behavior if no files are found using the provided path.
