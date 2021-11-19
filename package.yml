@@ -4,35 +4,35 @@ meta:
   maintainer: BackInBash
 files:
   "/usr/bin/cfssl":
-    file: bin/cfssl
+    file: cfssl/bin/cfssl
     mode: "0755"
     user: "root"
   "/usr/bin/cfssl-bundle":
-    file: bin/cfssl-bundle
+    file: cfssl/bin/cfssl-bundle
     mode: "0755"
     user: "root"
   "/usr/bin/cfssl-certinfo":
-    file: bin/cfssl-certinfo
+    file: cfssl/bin/cfssl-certinfo
     mode: "0755"
     user: "root"
   "/usr/bin/cfssl-newkey":
-    file: bin/cfssl-newkey
+    file: cfssl/bin/cfssl-newkey
     mode: "0755"
     user: "root"
   "/usr/bin/cfssl-scan":
-    file: bin/cfssl-scan
+    file: cfssl/bin/cfssl-scan
     mode: "0755"
     user: "root"
   "/usr/bin/cfssljson":
-    file: bin/cfssljson
+    file: cfssl/bin/cfssljson
     mode: "0755"
     user: "root"
   "/usr/bin/mkbundle":
-    file: bin/mkbundle
+    file: cfssl/bin/mkbundle
     mode: "0755"
     user: "root"
   "/usr/bin/multirootca":
-    file: bin/multirootca
+    file: cfssl/bin/multirootca
     mode: "0755"
     user: "root"
 scripts:
