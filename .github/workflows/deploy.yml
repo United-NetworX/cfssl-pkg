@@ -66,37 +66,10 @@ jobs:
           format: deb
           package: package.yml
           
-      - uses: actions/upload-artifact@v2
-        with:
-          name: artifact-deb
-          path: |
-            ./*.deb
-            
-      - uses: actions/upload-artifact@v2
-        with:
-          name: artifact-rpm
-          path: |
-            ./*.rpm
-            !./*-debuginfo-*.rpm
-            
-      - name: Create Release
-        id: create-release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.version.outputs.tag }}
-          release_name: cfssl ${{ steps.version.outputs.tag }}
-          draft: false
-          prerelease: false
-      
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.vars.outputs.upload_url }}
-          asset_path: ${{ steps.vars.outputs.asset_name }}
-          asset_name: ${{ steps.vars.outputs.asset_name }}
-          asset_content_type: ${{ matrix.asset_content_type }}
+          files: |
+            cfssl*.pkg
+            cfssl*.deb
