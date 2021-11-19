@@ -44,7 +44,7 @@ jobs:
           path: cfssl
       
       - name: Build CFSSL
-        run: go build -v ./cfssl/...
+        run: cd cfssl && make
 
       # Build DEB Package
       - name: Build Linux DEB Packages
